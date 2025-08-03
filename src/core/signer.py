@@ -75,7 +75,7 @@ class Signer:
         elif score_strategy == 2:  # 2-3分策略
             score = "3" if has_english else "2"
         elif score_strategy == 3:  # 3-4分策略（默认）
-            score = "4" if has_english else "3"
+            score = "3" if has_english else "4"
         else:  # 固定4分
             score = "4"
             
@@ -137,4 +137,5 @@ class Signer:
                 
         except Exception as e:
             self.logger.error(f'歌曲「{work["name"]}」评分异常：{str(e)}')
+
             raise RuntimeError(f"评分过程出错: {str(e)}") 
