@@ -1,4 +1,4 @@
-name: Auto Score
+name: Test Score
 
 on:
   schedule:
