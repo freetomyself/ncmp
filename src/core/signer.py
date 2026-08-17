@@ -64,7 +64,8 @@ class Signer:
     def _get_score_and_tag(self, work: dict) -> Tuple[str, str]:
         """根据作品信息获取评分和标签"""
         # 获取评分策略，默认为4（3-4分）
-        score_strategy = int(self.config.get("score", 3))
+        # score_strategy = int(self.config.get("score", 3))
+        score_strategy = random.choice([2, 3, 4])
         
         # 检查名称中是否包含英文
         has_english = bool(self.name_pattern.match(work["name"] + work["authorName"]))
