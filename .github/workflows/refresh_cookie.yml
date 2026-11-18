@@ -2,7 +2,7 @@ name: Refresh Cookie
 
 on:
   schedule:
-    - cron: '0 14 * * 0'  # 每周日UTC 14:00 (北京时间22:00)
+    - cron: '0 14 1 10 0'  # 每周日UTC 14:00 (北京时间22:00)
   workflow_dispatch:
 
 jobs:
@@ -36,4 +36,5 @@ jobs:
         EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
         SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
         SMTP_PORT: ${{ secrets.SMTP_PORT }}
-      run: python refresh_cookie.py
+      #run: python refresh_cookie.py、
+      run: echo 123
