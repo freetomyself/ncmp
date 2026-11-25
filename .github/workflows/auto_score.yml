@@ -37,3 +37,15 @@ jobs:
         FULL_EXTRA_TASKS: ${{ secrets.FULL_EXTRA_TASKS }}
 
       run: python main.py 
+    # 自动更新记录并提交到仓库
+    - name: Auto Commit
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+        mkdir -p .github
+        TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S' > .github/last-run.txt
+
+        git add .github/last-run.txt
+        git commit -m "chore: update auto score timestamp"
+        git push
