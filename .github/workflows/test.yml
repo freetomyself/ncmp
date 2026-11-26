@@ -3,6 +3,7 @@ on:
   schedule:
     # 每 5 分钟运行一次，使用上海时区，错开整点
     - cron: '0 13 * * *'
+  workflow_dispatch:
 
 jobs:
   check-time:
