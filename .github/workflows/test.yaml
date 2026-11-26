@@ -1,0 +1,20 @@
+on:
+  schedule:
+    # 上海时间 14:25
+    - cron: '25 14 * * *'
+      timezone: 'Asia/Shanghai'
+
+    # UTC 06:25，与上面的时间相同
+    - cron: '25 6 * * *'
+
+jobs:
+  check-time:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show trigger and current time
+        run: |
+          echo "Triggered by cron: ${{ github.event.schedule }}"
+          echo "UTC time:"
+          date -u '+%Y-%m-%d %H:%M:%S UTC'
+          echo "Shanghai time:"
+          TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S Asia/Shanghai'
