@@ -1,3 +1,4 @@
+name: test
 on:
   schedule:
     # 上海时间 14:25
